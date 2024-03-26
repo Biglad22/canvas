@@ -279,12 +279,13 @@ export const Canvas = ({toolState, img, setExportData, exportData, layers, setLa
         if(newState.layerSheets.length > 0){ 
 
             newState.layerSheets.forEach(elem => {
-                if (elem.layer === activeLayer){
+                if (elem === activeLayer){
                     elem.data = canvasData.current;
                 }
                 console.log(newState);
             });
-            return setLayer(()=> newState);
+            setLayer(()=> newState);
+         
         }else{
             newState.layerSheets.push({layer: activeLayer, data : canvasData.current });
 
